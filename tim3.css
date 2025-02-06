@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --highlight-color: #e67e22;
+    --background-color: #f8f9fa;
+    --gold-color: #ffd700;
+}
+
+body {
+    line-height: 1.6;
+    background-color: var(--background-color);
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: -1px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-menu li a:hover {
+    color: var(--secondary-color);
+}
+
+.highlight {
+    color: var(--highlight-color) !important;
+    font-weight: 600;
+}
+
+.packages {
+    padding: 120px 0 60px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    padding-top: 2rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.package-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 420px;
+}
+
+.package-card:hover {
+    transform: translateY(-5px);
+}
+
+.price {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin: 1rem 0;
+    font-weight: 700;
+    flex-grow: 1;
+}
+
+.features {
+    list-style: none;
+    margin: 1rem 0;
+    flex-grow: 2;
+}
+
+.features li {
+    padding: 0.8rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #444;
+}
+
+.features .placeholder {
+    visibility: hidden;
+    height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.cta-button {
+    margin-top: auto;
+    width: 100%;
+    padding: 1rem;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #2980b9;
+}
+
+.badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--highlight-color);
+    color: white;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.badge.gold {
+    background: var(--gold-color);
+    color: var(--primary-color);
+}
+
+.package-card.premium {
+    border: 2px solid var(--gold-color);
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    }
+}
+
+.cta-button.gold {
+    background: var(--gold-color);
+    color: var(--primary-color);
+}
+
+.cta-button.gold:hover {
+    background: #e6b800;
+}
+
+.footer {
+    background: var(--primary-color);
+    color: white;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+.footer p {
+    text-align: center;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        padding: 2rem 0;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .package-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .package-card {
+        min-height: 380px;
+    }
+}
